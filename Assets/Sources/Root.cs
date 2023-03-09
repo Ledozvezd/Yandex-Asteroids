@@ -14,12 +14,12 @@ public class Root : MonoBehaviour
     private DefaultGun _baseGun;
     private LaserGun _laserGun;
     private LaserGunRollback _laserGunRollback;
-    private ShipPresenter _lifes;
 
     public Ship Ship => _shipModel;
     public LaserGun LaserGun => _laserGun;
     public LaserGunRollback LaserGunRollback => _laserGunRollback;
-    public ShipPresenter Lives => _lifes;
+
+    public ShipPresenter ShipPresenter => _shipPresenter;
 
     public void DisableShip()
     {
@@ -75,5 +75,10 @@ public class Root : MonoBehaviour
     public void OnShipDestroying()
     {
         _endGameWindow.Show(0, () => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex));
+    }
+    public void EnableScreen()
+    {
+        _endGameWindow.enabled = true;
+        OnShipDestroying();
     }
 }

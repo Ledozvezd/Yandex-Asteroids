@@ -31,10 +31,10 @@ public class ShipDebugUIPresenter : MonoBehaviour
     private void Update()
     {
         _positionLabel.text = $"Position: {_init.Ship.Position}";
-        _rotationLabel.text = $"Rotation: {(Mathf.RoundToInt(_init.Ship.Rotation)-360)*-1}°"; //_rotationLabel.text = $"Rotation: {Mathf.RoundToInt(_init.Ship.Rotation)}°";
+        _rotationLabel.text = $"Rotation: {(Mathf.RoundToInt(_init.Ship.Rotation)-360)*-1}°";
         _speedLabel.text = $"Speed: {Mathf.RoundToInt(_init.Ship.Acceleration.magnitude * 10000)}";
         _laserRollbackLabel.text = $"To Rollback: {(_init.LaserGunRollback.Cooldown - _init.LaserGunRollback.AccumulatedTime):0.0}";
-        _lifeLabel.text = $"Lifes: {_init.Lives}";
+        _lifeLabel.text = $"Lives: {(_init.ShipPresenter.Lives)}";
     }
 
     private void OnLaserGunShot(Bullet bullet)
